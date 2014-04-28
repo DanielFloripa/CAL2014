@@ -1,0 +1,20 @@
+#ifndef _main_h
+
+/*Criado por:
+ * Danie S Camargo
+ * Jhonatas Izidoro
+ */
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <time.h>
+#include <dirent.h>
+#include <stdbool.h>
+
+#include "menus/mPrincipal.c"
+
+#define _main_h
+
+#endif
