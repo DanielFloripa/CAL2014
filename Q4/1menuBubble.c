@@ -13,7 +13,6 @@ void BubbleSort(int *v, int n) {
             }
 }
 
-
 void menuBubble(){
     //Variaveis para calculo de tempo
     clock_t tempoInicial, tempoFinal;

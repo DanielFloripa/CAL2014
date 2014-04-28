@@ -30,8 +30,8 @@ void menuInsertion(){
     
     do {
         system("clear");
-        printf("\tALGORITMOS DE ORDENACAO  \n");
-        printf("\t\tQ2 INSERTION SORT    \n"); 
+        printf("\t\t ALGORITMOS DE ORDENACAO  \n");
+        printf("\t 2 - INSERTION SORT    \n"); 
         printf("[1] Ordenacao Crescente (melhor caso)\n");
         printf("[2] Ordenacao Decrescente (pior caso)\n");
         printf("[3] Ordenacao Aleatoria\n");
