@@ -24,8 +24,10 @@ void menuQuatro(void) {
                 break;
             case 5: menuHeap();
                 break;
-            break;
-            default:{}
+                break;
+            default:
+            {
+            }
         }
         printf("Voltando... [ENTER] para continuar...\n");
         fflush(stdin);

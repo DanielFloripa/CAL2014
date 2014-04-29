@@ -7,15 +7,15 @@ int inserirElemento1(void *aux, char *arq) {
         printf("Problema no %s!", arq);
         return FRACASSO;
     }
-    fwrite(aux, sizeof (Agenda), 1, pF);
+    fwrite(aux, sizeof (Agendaa), 1, pF);
     fclose(pF);
     return SUCESSO;
 }
 
 int intercalaElementos() {
-    Agenda a1;
-    Agenda a2;
-    Agenda m;
+    Agendaa a1;
+    Agendaa a2;
+    Agendaa m;
 
     FILE *pF1 = fopen(arq1, "rb");
     FILE *pF2 = fopen(arq2, "rb");
@@ -23,34 +23,33 @@ int intercalaElementos() {
 
     if (pF1 == NULL || pF2 == NULL)
         return FRACASSO;
-
-    if (fread(&a1, sizeof (Agenda), 1, pF1) == 0)
+    if (fread(&a1, sizeof (Agendaa), 1, pF1) == 0)
         return FRACASSO;
-    if (fread(&a2, sizeof (Agenda), 1, pF2) == 0)
+    if (fread(&a2, sizeof (Agendaa), 1, pF2) == 0)
         return FRACASSO;
     while (!feof(pF1) && !feof(pF2)) {
         if (a1.cod < a2.cod) {
             printf("a1 = %d menor a2 = %d\n", a1.cod, a2.cod);
-            fwrite(&a1, sizeof (Agenda), 1, pF3);
+            fwrite(&a1, sizeof (Agendaa), 1, pF3);
             printf("Inserindo a1 = %d no arq3\n", a1.cod);
-            fread(&a1, sizeof (Agenda), 1, pF1);
+            fread(&a1, sizeof (Agendaa), 1, pF1);
             if (feof(pF1)) {
                 while (!feof(pF2)) {
                     printf("Arq1 acabou\nInserindo a2 = %d no arq3\n", a2.cod);
-                    fwrite(&a2, sizeof (Agenda), 1, pF3);
-                    fread(&a2, sizeof (Agenda), 1, pF2);
+                    fwrite(&a2, sizeof (Agendaa), 1, pF3);
+                    fread(&a2, sizeof (Agendaa), 1, pF2);
                 }
             }
         } else {
             printf("a1 = %d maior a2 = %d\n", a1.cod, a2.cod);
-            fwrite(&a2, sizeof (Agenda), 1, pF3);
+            fwrite(&a2, sizeof (Agendaa), 1, pF3);
             printf("Inserindo a2 = %d no arq3\n", a2.cod);
-            fread(&a2, sizeof (Agenda), 1, pF2);
+            fread(&a2, sizeof (Agendaa), 1, pF2);
             if (feof(pF2)) {
                 while (!feof(pF1)) {
                     printf("Arq2 acabou\nInserindo a1 = %d no arq3\n", a1.cod);
-                    fwrite(&a1, sizeof (Agenda), 1, pF3);
-                    fread(&a1, sizeof (Agenda), 1, pF1);
+                    fwrite(&a1, sizeof (Agendaa), 1, pF3);
+                    fread(&a1, sizeof (Agendaa), 1, pF1);
                 }
             }
         }
@@ -62,7 +61,7 @@ int intercalaElementos() {
 
     /*Reabre pra leitura*/
     pF3 = fopen(arq3, "rb");
-    while (fread(&m, sizeof (Agenda), 1, pF3)) {
+    while (fread(&m, sizeof (Agendaa), 1, pF3)) {
         printf("\nCodigo:\t%d \nNome : \t%sRua  : \t%sFone : \t%s",
                 m.cod, m.nome, m.end, m.fone);
     }
@@ -71,7 +70,7 @@ int intercalaElementos() {
 }
 
 void questao1(void) {
-    Agenda a, a1;
+    Agendaa a;
     int opc, ag_num, ret;
 
     do {

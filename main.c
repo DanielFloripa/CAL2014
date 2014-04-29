@@ -31,7 +31,9 @@ void main(void) {
                 break;
             case 5: questao5();
                 break;
-            default: {}//printf("Opcao errada!\n Tente de 0 a 5..\n");
+            default:
+            {
+            }//printf("Opcao errada!\n Tente de 0 a 5..\n");
         }
     } while (opc != 0);
     exit(EXIT_SUCCESS);

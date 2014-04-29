@@ -306,8 +306,8 @@ int percursoOrdem(pABB p, int (*exibe)(void *dado)) { //desce esquerda, mostra, 
 }
 
 int compara(void *dado1, void *dado2) {
-    Agenda *cod1 = (Agenda*) dado1;
-    Agenda *cod2 = (Agenda*) dado2;
+    Agendaa *cod1 = (Agendaa*) dado1;
+    Agendaa *cod2 = (Agendaa*) dado2;
     if (cod1->cod < cod2->cod)
         return MENOR;
     if (cod1->cod > cod2->cod)
@@ -317,14 +317,14 @@ int compara(void *dado1, void *dado2) {
 }
 
 int exibe(void *dado) {
-    Agenda *contato = (Agenda *) dado;
+    Agendaa *contato = (Agendaa *) dado;
     printf("[%i], ", contato->cod);
     return SUCESSO;
 }
 
 void questao3(void) {
     pABB arvore = NULL;
-    Agenda temp;
+    Agendaa temp;
     int escolha;
 
     do {
@@ -333,7 +333,7 @@ void questao3(void) {
                 "\t[1] Criar arvore\n"
                 "\t[2] Inserir contato na arvore\n"
                 "\t[3] Remover contato da arvore\n"
-                "\t[4] Remover contato recursivamente da arvore\n"
+                "\t[4] RETIRAR Remover contato recursivamente da arvore\n"
                 "\t[5] Exibir todos os contatos na arvore\n"
                 "\t[0] Voltar programa principal\n"
                 "Opcao:__[");
@@ -344,7 +344,7 @@ void questao3(void) {
                 if (arvore != NULL)
                     printf("Voce ja criou a arvore!\n");
                 else {
-                    if (!criaABB(&arvore, sizeof (Agenda)))
+                    if (!criaABB(&arvore, sizeof (Agendaa)))
                         printf("Erro ao criar arvore.\n");
                     else
                         printf("\nArvore criada com sucesso.\n");

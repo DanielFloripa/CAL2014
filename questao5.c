@@ -1,6 +1,6 @@
 #include "main.h"
 
-void questao5(void){
+void questao5(void) {
     char opcao;
     do {
         system(LIMPA);
@@ -14,14 +14,15 @@ void questao5(void){
         __fpurge(stdin);
         fflush(stdin);
         opcao = getchar();
-        switch(opcao){
+        switch (opcao) {
             case 1:
                 break;
-            case 2: 
+            case 2:
                 break;
-                
-            default: {}
+
+            default:
+            {
+            }
         }
-    }while (opcao !=0);
-    
+    } while (opcao != 0);
 }

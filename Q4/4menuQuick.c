@@ -50,18 +50,20 @@ void menuQuick() {
     int tamVet;
     int i;
     int *v;
-    char opcao;
-
+        char opcao,
+        *metodo;
+    strcpy(metodo,"QUICK SORT");
+    
     do {
         system(LIMPA);
-        printf("\tQ4 - ALGORITMOS DE ORDENACAO\n");
-        printf("\t 4 - QUICK SORT \n\n");
-        printf("\t[1] Ordenacao Crescente (melhor caso)\n");
-        printf("\t[2] Ordenacao Decrescente (pior caso)\n");
-        printf("\t[3] Ordenacao Aleatoria\n");
-        printf("\t[4] Apresentar resultados\n");
-        printf("\t[0] Voltar ao Menu Q4\n");
-        printf("Opcao:__[");
+        printf("\t Q4 - ALGORITMOS DE ORDENACAO\n"
+                "\t 4 - %s\n\n"
+                "\t[1] Ordenacao Crescente (melhor caso)\n"
+                "\t[2] Ordenacao Decrescente (pior caso)\n"
+                "\t[3] Ordenacao Aleatoria\n"
+                "\t[4] Apresentar resultados\n"
+                "\t[0] Voltar ao Menu Q4\n"
+                "Opcao:__[", metodo);
         __fpurge(stdin);
         fflush(stdin);
         opcao = getchar();
@@ -72,12 +74,10 @@ void menuQuick() {
                 printf("\n\n\t\t Informe o tamanho do vetor: ");
                 scanf("%d", &tamVet);
                 int vet[tamVet];
-
-                for (i = 0; i < tamVet; i++) {
+                for (i = 0; i < tamVet; i++)
                     vet[i] = i;
-                }
                 v = vet;
-
+                
                 tempoInicial = clock();
                 QuickSort(v, tamVet);
                 tempoFinal = clock();
