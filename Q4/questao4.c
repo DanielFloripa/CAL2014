@@ -1,6 +1,6 @@
 #include "questao4.h"
 
-int menuQuatro(void) {
+void menuQuatro(void) {
     char opcao;
     do {
         system(" clear || cls");
@@ -10,7 +10,7 @@ int menuQuatro(void) {
         printf("[2] Insertion Sort\n");
         printf("[3] Merge Sort\n");
         printf("[4] Quick Sort\n");
-        printf("[5] falta o heap!!!\n");
+        printf("[5] Heap Sort\n");
         printf("[0] Sair\n");
         printf("\t\tEscolha a opcao: ");
         opcao = getchar();
@@ -18,45 +18,23 @@ int menuQuatro(void) {
         fflush(stdin);
 
         switch (opcao) {
-            case '1':
-            {
-                menuBubble();
-            };
+            case '1': menuBubble();
                 break;
-
-            case '2':
-            {
-                menuInsertion();
-            };
+            case '2': menuInsertion();
                 break;
-
-            case '3':
-            {
-                menuMerge();
-            };
+            case '3': menuMerge();
                 break;
-
-            case '4':
-            {
-                menuQuick();
-            };
+            case '4': menuQuick();
                 break;
-            case '5':
-            {
-                menuHeap();
-            };
+            case '5': menuHeap();
                 break;
             case '0':
             {
                 printf("Voltando para menu principal\n");
                 sleep(2);
-            }
-            default:
-            {
-                printf("\nOpcao incorreta, escolha de 0 a 5\n\n");
-            }
+                return;
+            } break;
+            default: printf("\nOpcao incorreta, escolha de 0 a 5\n\n");
         }
-    }    while (opcao != '0');
-    system(" clear || cls");
-    return 1;
+    } while (opcao < 0 || opcao > 5);
 }

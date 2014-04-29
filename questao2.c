@@ -110,7 +110,7 @@ int buscarLista(ppAgenda2 agenda, int cod) {
     return SUCESSO;
 }
 
-int questao2() {
+void questao2(void) {
 
     pAgenda2 agenda = NULL;
     int opc, cod;
@@ -164,14 +164,13 @@ int questao2() {
                     printf("%d Removido com sucesso!\n", cod);
             }
                 break;
-            case 0: printf("Saindo...\n");
+            case 0:  printf("Saindo...\n"); 
                 break;
-            default: printf("Opcao errada!\n");
+            default: printf("Opcao errada! Tente de 0 a 3\n");
         }
         printf("Pressione [ENTER] para continuar...\n");
         fflush(stdin);
         __fpurge(stdin);
         getchar();
     } while (opc != 0);
-    return SUCESSO;
 }

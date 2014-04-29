@@ -20,6 +20,7 @@
       <itemPath>questao3.c</itemPath>
       <itemPath>/home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/Q4/questao4.c</itemPath>
       <itemPath>/home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/Q4/questao4.h</itemPath>
+      <itemPath>/home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/questao5.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Arquivos de Recurso"
@@ -80,6 +81,11 @@
       <item path="/home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/Q4/questao4.h"
             ex="false"
             tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/questao5.c"
+            ex="false"
+            tool="0"
             flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
@@ -146,6 +152,11 @@
       <item path="/home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/Q4/questao4.h"
             ex="false"
             tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/questao5.c"
+            ex="false"
+            tool="0"
             flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">

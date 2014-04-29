@@ -1,12 +1,5 @@
 #include "main.h"
 
-/*typedef struct agenda1 {
-    int cod;
-    char nome[30];
-    char end[30];
-    char fone[20];
-} Agenda1;*/
-
 int inserirElemento1(void *aux, char *arq) {
     FILE *pF = fopen(arq, "ab+");
     if (!pF) {
@@ -71,7 +64,7 @@ void intercalaElementos() {
     fclose(pF3);
 }
 
-int questao1() {
+void questao1(void) {
     Agenda a, a1;
     int opc, ag_num, ret;
 
@@ -112,7 +105,7 @@ int questao1() {
                 }
                 if (!ret) {
                     printf("Problema na insercao de %d!\n", a.cod);
-                    return FRACASSO;
+                    return;
                 } else
                     printf("Elemento [%d] inserido em 'file%i.dat'.\n", a.cod, ag_num);
             }  break;
@@ -160,5 +153,4 @@ int questao1() {
         __fpurge(stdin);
         getchar();
     } while (opc != 0);
-    return SUCESSO;
 }

@@ -322,7 +322,7 @@ int exibe(void *dado) {
     return SUCESSO;
 }
 
-int questao3() {
+void questao3(void) {
     pABB arvore = NULL;
     Agenda temp;
     int escolha;
@@ -429,5 +429,4 @@ int questao3() {
         __fpurge(stdin);
         getchar();
     } while (escolha != 0);
-    return SUCESSO;
 }

@@ -41,6 +41,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/515780377/4menuQuick.o \
 	${OBJECTDIR}/_ext/515780377/5menuHeap.o \
 	${OBJECTDIR}/_ext/515780377/questao4.o \
+	${OBJECTDIR}/_ext/1921768263/questao5.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/questao1.o \
 	${OBJECTDIR}/questao2.o \
@@ -100,6 +101,11 @@ ${OBJECTDIR}/_ext/515780377/questao4.o: nbproject/Makefile-${CND_CONF}.mk /home/
 	${MKDIR} -p ${OBJECTDIR}/_ext/515780377
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/515780377/questao4.o /home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/Q4/questao4.c
+
+${OBJECTDIR}/_ext/1921768263/questao5.o: nbproject/Makefile-${CND_CONF}.mk /home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/questao5.c 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1921768263
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1921768263/questao5.o /home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/questao5.c
 
 ${OBJECTDIR}/main.o: nbproject/Makefile-${CND_CONF}.mk main.c 
 	${MKDIR} -p ${OBJECTDIR}
