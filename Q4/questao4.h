@@ -1,22 +1,12 @@
 #ifndef _QUESTAO4_H_
 #define _QUESTAO4_H_
-
-    #include <stdio.h>
-    #include <stdlib.h>
-    #include <time.h>
-    #include <string.h>
-    #include <stdio_ext.h>
-    #include <ctype.h>
-    #include <dirent.h>
-    #include <stdbool.h>
-    #include <unistd.h>
-    #include <math.h>
+    #include "../main.h"
 
     extern void menuQuatro(void);
-    extern void menuBubble();
-    extern void menuQuick();
-    extern void menuInsertion();
-    extern void menuMerge();
-    extern void menuHeap();
+    extern void menuBubble(void);
+    extern void menuQuick(void);
+    extern void menuInsertion(void);
+    extern void menuMerge(void);
+    extern void menuHeap(void);
     
 #endif
