@@ -8,7 +8,7 @@
 void main(void) {
     int opc;
     do {
-        system(" clear || cls");
+        system(LIMPA);
         printf("\t ---TRABALHO 01 CAL---\n");
         printf("\t ---MENU PRINCIPAL---\n\n");
         printf("Deseja executar qual questao?\n "
@@ -31,15 +31,9 @@ void main(void) {
                 break;
             case 5: questao5();
                 break;
-            case 0:
-            {
-                puts("Saindo...");
-                sleep(1);
-                exit(EXIT_SUCCESS);
-            }
-            break;
-            default: printf("Opcao errada!\n Tente de 0 a 5..\n");
+            default: {}//printf("Opcao errada!\n Tente de 0 a 5..\n");
         }
-    } while (opc < 0 && opc > 6);
+    } while (opc != 0);
+    exit(EXIT_SUCCESS);
 }
 

@@ -14,7 +14,8 @@
    #include <dirent.h>
    #include <stdbool.h>
    #include <unistd.h>
-   #include "Q4/questao4.h"
+   #include <math.h>
+   //#include "Q4/questao4.h"
    //#include <curses.h> // para windows
 
     /*DEFINICOES*/
@@ -32,18 +33,27 @@
    #define arq1 "file1.dat"
    #define arq2 "file2.dat"
    #define arq3 "file3.dat"
+   #define LIMPA "clear || cls"
    #define T_NOME 30
    #define T_END 30
    #define T_FONE 20
 
-   typedef struct {
+   typedef struct{ /*Para o Merge e Arvore*/
        int cod;
        char nome[T_NOME];
        char end[T_END];
        char fone[T_FONE];
-   }Agenda;
+    } Agenda;
+    
+    typedef struct agenda2{ /*Para a Lista*/
+       int cod;
+       char nome[T_NOME];
+       char end[T_END];
+       char fone[T_FONE];
+       struct agenda2 *proximo;
+    }Agenda2, *pAgenda2, **ppAgenda2;
 
-    extern void questao1();
+    extern int questao1();
     extern void questao2();
     extern void questao3();
     extern void menuQuatro();

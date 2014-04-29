@@ -18,7 +18,7 @@ void intercalaElementos() {
 
     FILE *pF1 = fopen(arq1, "rb");
     FILE *pF2 = fopen(arq2, "rb");
-    FILE *pF3 = fopen(arq3, "wb");
+    FILE *pF3 = fopen(arq3, "w+b");
 
     fread(&a1, sizeof (Agenda), 1, pF1);
     fread(&a2, sizeof (Agenda), 1, pF2);
@@ -56,34 +56,30 @@ void intercalaElementos() {
     /*Reabre pra leitura*/
     pF3 = fopen(arq3, "rb");
     while (fread(&m, sizeof (Agenda), 1, pF3)) {
-        printf("Codigo:\t%d\n", m.cod);
-        printf("Nome : \t%s", m.nome);
-        printf("Rua  : \t%s\n", m.end);
-        printf("Fone : \t%s", m.fone);
+        printf("Codigo:\t%d \nNome : \t%sRua  : \t%sFone : \t%s",
+                m.cod, m.nome, m.end, m.fone);
     }
     fclose(pF3);
 }
 
-void questao1(void) {
+int questao1(void) {
     Agenda a, a1;
     int opc, ag_num, ret;
 
     do {
-        do {
-            system(" clear || cls");
-            printf("---Questao 1 ---\n\n");
-            printf(" \t1) Inserir na agenda...\n "
-                    "\t2) Merge entre agendas\n "
-                    "\t3) Remover Agendas\n "
-                    "\t0)Voltar..\n Opcao:__");
-            scanf("%d", &opc);
-        } while (opc > 3 || opc < 0);
+        system(LIMPA);
+        printf("\tQ1 - MERGE SORT\n\n");
+        printf(" \t[1] Inserir na agenda...\n "
+                "\t[2] Merge entre agendas\n "
+                "\t[3] Remover Agendas\n "
+                "\t[0] Voltar programa principal\n"
+                "Opcao:__[");
+        scanf("%d", &opc);
         switch (opc) {
             case 1:
             {
                 printf("Qual agenda? (1 ou 2):__");
                 scanf("%d", &ag_num);
-
                 printf("Entre com:\n\tCodigo:__");
                 scanf("%i*c", &a.cod);
                 printf("\tNome:__");
@@ -108,49 +104,57 @@ void questao1(void) {
                     return;
                 } else
                     printf("Elemento [%d] inserido em 'file%i.dat'.\n", a.cod, ag_num);
-            }  break;
-            case 2:
-            {
-                intercalaElementos();
-            } break;
+            }
+                break;
+            case 2: intercalaElementos();
+                break;
             case 3:
             {
-                ag_num=0;
+                ag_num = 0;
                 char comando[20] = "rm -f ";
                 printf("Deseja remover qual agenda? (1,2,3,4=todas)\nOpcao__");
-                scanf("%d",&ag_num);
-                //strcat(comando, arq1);
-                switch(ag_num){
-                    case 1: {
+                scanf("%d", &ag_num);
+                switch (ag_num) {
+                    case 1:
+                    {
                         strcat(comando, arq1);
                         system(comando);
                         printf("comando = %s\n", comando);
-                    } break;
-                    case 2: {
+                    }
+                        break;
+                    case 2:
+                    {
                         strcat(comando, arq2);
                         system(comando);
                         printf("comando = %s\n", comando);
-                    }break;
-                    case 3: {
+                    }
+                        break;
+                    case 3:
+                    {
                         strcat(comando, arq3);
                         system(comando);
                         printf("comando = %s\n", comando);
-                    }break;
-                    case 4: {
-                        system("rm -f *.dat");
-                        printf("rm -f *.dat\n");
                     }
-                    default:{
-                        printf("Escolha de 1 a 4\n");
-                    }break;
+                        break;
+                    case 4:
+                    {
+                        system("rm -f *.dat");
+                        printf("comando = rm -f *.dat\n");
+                    }
+                    default:
+                    {
+                    } //printf("Escolha de 1 a 4\n");
                 }
-            } break;
-            case 0: printf("\nVoltando...");
+            }
                 break;
-            default: printf("Opcao errada!\n");
+            default:
+            {
+            }//printf("Opcao errada!\n");
         }
+        printf("[ENTER] para continuar...\n");
         fflush(stdin);
         __fpurge(stdin);
         getchar();
     } while (opc != 0);
+    return SUCESSO;
 }

@@ -125,8 +125,8 @@ pNoABB removeRecursivo(pNoABB temp, void *elemento, int (*compara)(void *dado1, 
 
 /*Remocao COM recursao*/
 int removeRecABB(pABB p, void *elemento, int (*compara)(void *dado1, void *dado2)) {
-    pNoABB pNo = NULL,   //pNo: endereco do elemento a ser retirado;
-            sub = NULL;  //sub: endereco do substituto (caso tenha 2 filhos)
+    pNoABB pNo = NULL, //pNo: endereco do elemento a ser retirado;
+            sub = NULL; //sub: endereco do substituto (caso tenha 2 filhos)
     int num, pos; //num=numero de filhos; pos=dir/esq/ambos (em abb_publico)
     if (vazia(p))
         return FRACASSO;
@@ -328,17 +328,16 @@ void questao3(void) {
     int escolha;
 
     do {
-        do {
-            system("clear || cls");
-            printf("1) Criar arvore\n"); //
-            printf("2) Inserir contato na arvore\n");
-            printf("3) Remover contato da arvore\n");
-            printf("4) Remover contato recursivamente da arvore\n");
-            printf("5) Exibir todos os contatos na arvore\n");
-            printf("0) Voltar programa principal\n"); //
-            printf("Sua escolha:__");
-            scanf("%d", &escolha);
-        } while (escolha > 5 || escolha < 0);
+        system(LIMPA);
+        printf("\tQ3 - ARVORE BINARIA DE PESQUISA\n\n"
+                "\t[1] Criar arvore\n"
+                "\t[2] Inserir contato na arvore\n"
+                "\t[3] Remover contato da arvore\n"
+                "\t[4] Remover contato recursivamente da arvore\n"
+                "\t[5] Exibir todos os contatos na arvore\n"
+                "\t[0] Voltar programa principal\n"
+                "Opcao:__[");
+        scanf("%d", &escolha);
         switch (escolha) {
             case 1:
             {
@@ -362,17 +361,17 @@ void questao3(void) {
                     fflush(stdin);
                     __fpurge(stdin);
                     printf("Nome: fulano\n");
-                    strcpy(temp.nome,"fulano");
-                   // fgets(temp.nome, T_NOME * sizeof (char), stdin);
+                    strcpy(temp.nome, "fulano");
+                    // fgets(temp.nome, T_NOME * sizeof (char), stdin);
                     fflush(stdin);
                     __fpurge(stdin);
                     printf("Endereco: rua das acacias\n");
-                    strcpy(temp.end,"acacias");
+                    strcpy(temp.end, "acacias");
                     //fgets(temp.end, T_END * sizeof (char), stdin);
                     fflush(stdin);
                     __fpurge(stdin);
                     printf("Fone: 2345678\n");
-                    strcpy(temp.fone,"2345678");
+                    strcpy(temp.fone, "2345678");
                     //fgets(temp.fone, T_FONE * sizeof (char), stdin);
                     fflush(stdin);
                     __fpurge(stdin);
@@ -420,13 +419,14 @@ void questao3(void) {
                 }
             }
                 break;
-            case 0: printf("Voltando...\n");
-                break;
-            default: printf("Valor incorreto!\n");
+            default:
+            {
+            }//printf("Valor incorreto! Tente de 0 a 5\n");
         }
-        printf("\nPressione [ENTER] para continuar...\n");
+        printf("\n[ENTER] para continuar...\n");
         fflush(stdin);
         __fpurge(stdin);
         getchar();
     } while (escolha != 0);
+    return;
 }

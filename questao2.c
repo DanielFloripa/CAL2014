@@ -1,14 +1,6 @@
 #include "main.h"
 
-typedef struct agenda2 {
-    int cod;
-    char nome[30];
-    char endereco[30];
-    char fone[20];
-    struct agenda2 *proximo;
-} Agenda2, *pAgenda2, **ppAgenda2;
-
-int inserirLista(ppAgenda2 agenda, int cod, char nome[30], char endereco[30], char fone[20]) {
+int inserirLista(ppAgenda2 agenda, int cod, char nome[T_NOME], char end[T_END], char fone[T_FONE]) {
     pAgenda2 aux;
 
     //Lista vazia
@@ -19,7 +11,7 @@ int inserirLista(ppAgenda2 agenda, int cod, char nome[30], char endereco[30], ch
         }
         (*agenda)->cod = cod;
         strcpy((*agenda)->nome, nome);
-        strcpy((*agenda)->endereco, endereco);
+        strcpy((*agenda)->end, end);
         strcpy((*agenda)->fone, fone);
         (*agenda)->proximo = NULL;
 
@@ -39,7 +31,7 @@ int inserirLista(ppAgenda2 agenda, int cod, char nome[30], char endereco[30], ch
         aux = aux->proximo;
         aux->cod = cod;
         strcpy(aux->nome, nome);
-        strcpy(aux->endereco, endereco);
+        strcpy(aux->end, end);
         strcpy(aux->fone, fone);
         aux->proximo = NULL;
     }
@@ -50,30 +42,34 @@ int removerLista(ppAgenda2 agenda, int cod) {
     pAgenda2 aux, auxProximo;
     aux = *agenda;
 
-    if (aux == NULL) //Lista vazia
+    if (aux == NULL) {
+        puts("Lista vazia.\n");
         return FRACASSO;
-    if (aux->proximo == NULL) { //Lista com 1 elemento
+    }
+    /*if (aux->proximo == NULL) { //Lista com 1 elemento
         if (aux->cod == cod) {
             free(agenda);
             agenda = NULL;
             return SUCESSO;
         }
+    } else {*/
+    if (aux->cod == cod) {
+        free(aux);
+        return SUCESSO;
     } else {
-        if (aux->cod == cod) {
-            free(aux);
-        } else {
-            auxProximo = aux->proximo;
-            while (auxProximo != NULL) {
-                if (auxProximo->cod == cod) {
-                    aux->proximo = auxProximo->proximo;
-                    free(auxProximo);
-                }
-                aux = auxProximo;
-                auxProximo = auxProximo->proximo;
+        auxProximo = aux->proximo;
+        while (auxProximo != NULL) {
+            if (auxProximo->cod == cod) {
+                aux->proximo = auxProximo->proximo;
+                free(auxProximo);
+                return SUCESSO;
             }
+            aux = auxProximo;
+            auxProximo = auxProximo->proximo;
         }
     }
-    return SUCESSO;
+    //}
+    return FRACASSO;
 }
 
 int buscarLista(ppAgenda2 agenda, int cod) {
@@ -84,30 +80,30 @@ int buscarLista(ppAgenda2 agenda, int cod) {
     if (aux == NULL)
         return FRACASSO;
 
-    //Lista com 1 elemento reducao da complexidade
-    if (aux->proximo == NULL) {
-        if (aux->cod == cod) {
-            printf("Codigo: %d \nNome: %s Endereco: %s Fone: %s \n", aux->cod, aux->nome, aux->endereco, aux->fone);
-            return SUCESSO;
-        }
-    }        //Lista com mais de 1 elemento
-    else {
-        if (aux->cod == cod) {
-            printf("Codigo: %d \nNome: %s Endereco: %s Fone: %s \n", aux->cod, aux->nome, aux->endereco, aux->fone);
-            return SUCESSO;
-        } else {
-            auxProximo = aux->proximo;
-            while (auxProximo != NULL) {
-                if (auxProximo->cod == cod) {
-                    printf("Codigo: %d \nNome: %s Endereco: %s Fone: %s \n", auxProximo->cod, auxProximo->nome, auxProximo->endereco, auxProximo->fone);
-                    return SUCESSO;
-                }
-                aux = auxProximo;
-                auxProximo = auxProximo->proximo;
+    /* //Lista com 1 elemento reducao da complexidade
+     if (aux->proximo == NULL) {
+         if (aux->cod == cod) {
+             printf("Codigo: %d \nNome: %s Endereco: %s Fone: %s \n", aux->cod, aux->nome, aux->end, aux->fone);
+             return SUCESSO;
+         }
+     }       //Lista com mais de 1 elemento
+     else {*/
+    if (aux->cod == cod) {
+        printf("Codigo: %d \nNome: %sEndereco: %sFone: %s\n", aux->cod, aux->nome, aux->end, aux->fone);
+        return SUCESSO;
+    } else {
+        auxProximo = aux->proximo;
+        while (auxProximo != NULL) {
+            if (auxProximo->cod == cod) {
+                printf("Codigo: %d \nNome: %sEndereco: %sFone: %s\n", auxProximo->cod, auxProximo->nome, auxProximo->end, auxProximo->fone);
+                return SUCESSO;
             }
+            aux = auxProximo;
+            auxProximo = auxProximo->proximo;
         }
     }
-    return SUCESSO;
+    //}
+    return FRACASSO;
 }
 
 void questao2(void) {
@@ -118,16 +114,18 @@ void questao2(void) {
             end[T_END],
             fone[T_FONE];
     do {
-        do {
-            system(" clear || cls");
-            printf("---Questao 2 ---\n\n");
-            printf("\t1) Inserir\n \t2) Buscar\n \t3) Remover\n \t0)Sair..\n Opcao:__");
-            scanf("%d", &opc);
-        } while (opc > 3 || opc < 0);
+        system(LIMPA);
+        printf("\tQ2 - LISTA ENCADEADA\n\n"
+                "\t[1] Inserir na agenda\n "
+                "\t[2] Buscar na agenda\n "
+                "\t[3] Remover da agenda\n "
+                "\t[0]Voltar  programa principal\n"
+                "Opcao:__[");
+        scanf("%d", &opc);
         switch (opc) {
             case 1:
             {
-                printf("Entre com:\ncodigo: ");
+                printf("Entre com:\nCodigo: ");
                 scanf("%i*c", &cod);
                 printf("Nome: ");
                 __fpurge(stdin);
@@ -147,7 +145,7 @@ void questao2(void) {
                 break;
             case 2:
             {
-                printf("Qual codigo quer buscar?\n");
+                printf("Qual codigo deseja buscar?\n");
                 scanf("%d", &cod);
 
                 if (!buscarLista(&agenda, cod))
@@ -161,14 +159,12 @@ void questao2(void) {
                 if (!removerLista(&agenda, cod))
                     printf("Problema ao remover %d!\n", cod);
                 else
-                    printf("%d Removido com sucesso!\n", cod);
+                    printf("Item %d Removido com sucesso!\n", cod);
             }
                 break;
-            case 0:  printf("Saindo...\n"); 
-                break;
-            default: printf("Opcao errada! Tente de 0 a 3\n");
+            default: {}
         }
-        printf("Pressione [ENTER] para continuar...\n");
+        printf("\n[ENTER] para continuar...\n");
         fflush(stdin);
         __fpurge(stdin);
         getchar();

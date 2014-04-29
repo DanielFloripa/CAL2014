@@ -25,30 +25,27 @@ void menuBubble(){
     char opcao;
     
     do {
-        system("clear");
-        printf("\t\t ALGORITMOS DE ORDENACAO  \n");
-        printf("\t 1 - BUBBLE SORT\n"); 
-        printf("[1] Ordenacao Crescente (melhor caso)   \n");
-        printf("[2] Ordenacao Decrescente (pior caso)   \n");
-        printf("[3] Ordenacao Aleatoria          \n");
-        printf("[4] Apresentar resultados        \n");
-        printf("[0] Voltar ao Menu Principal     \n");             
-        printf("         Escolha a opcao: ");
-        opcao = getchar();
+        system(LIMPA);
+        printf("\t Q4 - ALGORITMOS DE ORDENACAO\n"
+                "\t 1 - BUBBLE SORT\n\n"
+                "\t[1] Ordenacao Crescente (melhor caso)\n"
+                "\t[2] Ordenacao Decrescente (pior caso)\n"
+                "\t[3] Ordenacao Aleatoria\n"
+                "\t[4] Apresentar resultados\n"
+                "\t[0] Voltar ao Menu Q4\n"
+                "Opcao:__[");
         __fpurge(stdin);
-        fflush(stdin);    
+        fflush(stdin);
+        opcao = getchar();
         
         switch(opcao){
             case '1': {
                 printf("\n\n\t\t Informe o tamanho do vetor: ");
                 scanf("%d",&tamVet);
                 int vet[tamVet];
-                
-                for(i=0;i<tamVet;i++){
-                    vet[i] = i;      
-                }
+                for(i=0;i<tamVet;i++)
+                    vet[i] = i;
                 v = vet;
-                
                 tempoInicial = clock();
                 BubbleSort(v,tamVet);
                 tempoFinal = clock();
@@ -56,7 +53,7 @@ void menuBubble(){
                 tempoGasto = (tempoFinal - tempoInicial)/(double)CLOCKS_PER_SEC;
                 printf("\t\t Tempo de execucao: %.3f segundos\n\n",tempoGasto);
                  __fpurge(stdin);
-				fflush(stdin);
+		fflush(stdin);
                 getchar();
             }; break;
             
@@ -77,7 +74,7 @@ void menuBubble(){
                 tempoGasto = (tempoFinal - tempoInicial)/(double)CLOCKS_PER_SEC;
                 printf("\t\t Tempo de execucao: %.3f segundos\n\n",tempoGasto);
                  __fpurge(stdin);
-				fflush(stdin);
+		fflush(stdin);
                 getchar();
             }; break;
             
@@ -98,14 +95,14 @@ void menuBubble(){
                 tempoGasto = (tempoFinal - tempoInicial)/(double)CLOCKS_PER_SEC;
                 printf("\t\t Tempo de execucao: %.3f segundos\n\n",tempoGasto);
                  __fpurge(stdin);
-				fflush(stdin);
+		fflush(stdin);
                 getchar();
             }; break;
             
             case '4': {
-                printf("\n\n\t\t Complexidade melhor caso: O(n^2)");
-                printf("\n\n\t\t Complexidade pior caso:   O(n^2)");
-                printf("\n\n\t\t Complexidade caso medio:  O(n^2)");
+                printf("\n\t\t Complexidade melhor caso: O(n^2)");
+                printf("\n\t\t Complexidade pior caso:   O(n^2)");
+                printf("\n\t\t Complexidade caso medio:  O(n^2)");
                  __fpurge(stdin);
 		fflush(stdin);
                 getchar();

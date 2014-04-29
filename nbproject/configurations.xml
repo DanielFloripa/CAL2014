@@ -4,6 +4,8 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
+      <itemPath>main.h</itemPath>
+      <itemPath>/home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/Q4/questao4.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
@@ -14,12 +16,10 @@
       <itemPath>/home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/Q4/4menuQuick.c</itemPath>
       <itemPath>/home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/Q4/5menuHeap.c</itemPath>
       <itemPath>main.c</itemPath>
-      <itemPath>main.h</itemPath>
       <itemPath>questao1.c</itemPath>
       <itemPath>questao2.c</itemPath>
       <itemPath>questao3.c</itemPath>
       <itemPath>/home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/Q4/questao4.c</itemPath>
-      <itemPath>/home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/Q4/questao4.h</itemPath>
       <itemPath>/home/daniel/Dropbox/UDESC/7_sem/CAL/Trab1_CAL/questao5.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"

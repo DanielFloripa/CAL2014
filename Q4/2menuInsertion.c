@@ -20,28 +20,24 @@ void menuInsertion(){
     //Variaveis para calculo de tempo
     clock_t tempoInicial, tempoFinal;
     double tempoGasto;
-    
     //Variaveis de controle
     int tamVet;
     int i;
     int *v;
-    
     char opcao;
-    
     do {
-        system("clear");
-        printf("\t\t ALGORITMOS DE ORDENACAO  \n");
-        printf("\t 2 - INSERTION SORT    \n"); 
-        printf("[1] Ordenacao Crescente (melhor caso)\n");
-        printf("[2] Ordenacao Decrescente (pior caso)\n");
-        printf("[3] Ordenacao Aleatoria\n");
-        printf("[4] Apresentar resultados\n");
-        printf("[0] Voltar ao Menu Principal\n");             
-        printf("\t\tEscolha a opcao: __");
-        opcao = getchar();
+        system(LIMPA);
+        printf("\tQ4 - ALGORITMOS DE ORDENACAO  \n");
+        printf("\t 2 - INSERTION SORT\n\n"); 
+        printf("\t[1] Ordenacao Crescente (melhor caso)\n");
+        printf("\t[2] Ordenacao Decrescente (pior caso)\n");
+        printf("\t[3] Ordenacao Aleatoria\n");
+        printf("\t[4] Apresentar resultados\n");
+        printf("\t[0] Voltar ao Menu Q4\n");             
+        printf("Opcao:__[");
         __fpurge(stdin);
-        fflush(stdin);  
-        getchar();  
+        fflush(stdin); 
+        opcao = getchar();
         
         switch(opcao){
             case '1': {

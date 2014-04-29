@@ -54,18 +54,18 @@ void menuMerge(){
     char opcao;
     
     do {
-        system("clear");
-        printf("\t\t ALGORITMOS DE ORDENACAO  \n");
-        printf("\t 3 - MERGE SORT \n"); 
-        printf("[1] Ordenacao Crescente (melhor caso)   \n");
-        printf("[2] Ordenacao Decrescente (pior caso)   \n");
-        printf("[3] Ordenacao Aleatoria          \n");
-        printf("[4] Apresentar resultados        \n");
-        printf("[0] Voltar ao Menu Principal     \n");             
-        printf("         Escolha a opcao: ");
-        opcao = getchar();
+        system(LIMPA);
+        printf("\tQ4 -ALGORITMOS DE ORDENACAO  \n");
+        printf("\t 3 - MERGE SORT\n\n"); 
+        printf("\t[1] Ordenacao Crescente (melhor caso)\n");
+        printf("\t[2] Ordenacao Decrescente (pior caso)\n");
+        printf("\t[3] Ordenacao Aleatoria\n");
+        printf("\t[4] Apresentar resultados\n");
+        printf("\t[0] Voltar ao Menu Q4\n");             
+        printf("Opcao:__[");
         __fpurge(stdin);
         fflush(stdin);    
+        opcao = getchar();
         
         switch(opcao){
             case '1': {
@@ -85,7 +85,7 @@ void menuMerge(){
                 tempoGasto = (tempoFinal - tempoInicial) / (double) CLOCKS_PER_SEC;
                 printf("\t\t Tempo de execucao: %.3f segundos\n\n",tempoGasto);
                  __fpurge(stdin);
-				fflush(stdin);
+		fflush(stdin);
                 getchar();
             }; break;
             
@@ -106,7 +106,7 @@ void menuMerge(){
                 tempoGasto = (tempoFinal - tempoInicial)/(double)CLOCKS_PER_SEC;
                 printf("\t\t Tempo de execucao: %.3f segundos\n\n",tempoGasto);
                  __fpurge(stdin);
-				fflush(stdin);
+		fflush(stdin);
                 getchar();
             }; break;
             
@@ -127,7 +127,7 @@ void menuMerge(){
                 tempoGasto = (tempoFinal - tempoInicial)/(double)CLOCKS_PER_SEC;
                 printf("\t\t Tempo de execucao: %.3f segundos\n\n",tempoGasto);
                  __fpurge(stdin);
-				fflush(stdin);
+		fflush(stdin);
                 getchar();
             }; break;
             
@@ -136,12 +136,12 @@ void menuMerge(){
                 printf("\n\n\t\t Complexidade pior caso:   O(n logn)");
                 printf("\n\n\t\t Complexidade caso medio:  O(n logn)");
                  __fpurge(stdin);
-				fflush(stdin);
+		fflush(stdin);
                 getchar();
             }; break;
             
             default: {
-                printf("\nOpcao incorreta, tente de 0 a 4\n");
+                //printf("\nOpcao incorreta, tente de 0 a 4\n");
             }
         }
     }

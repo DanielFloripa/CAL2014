@@ -1,40 +1,35 @@
 #include "questao4.h"
 
 void menuQuatro(void) {
-    char opcao;
+    int opcao;
     do {
-        system(" clear || cls");
-        printf("\tALGORITMOS DE ORDENACAO  \n");
-        printf("\t\tMENU PRINCIPAL\n");
-        printf("[1] Bubble Sort\n");
-        printf("[2] Insertion Sort\n");
-        printf("[3] Merge Sort\n");
-        printf("[4] Quick Sort\n");
-        printf("[5] Heap Sort\n");
-        printf("[0] Sair\n");
-        printf("\t\tEscolha a opcao: ");
-        opcao = getchar();
-        __fpurge(stdin);
-        fflush(stdin);
-
+        system(LIMPA);
+        printf("\tQ4 - ALGORITMOS DE ORDENACAO\n\n"
+                "\t[1] Bubble Sort\n"
+                "\t[2] Insertion Sort\n"
+                "\t[3] Merge Sort\n"
+                "\t[4] Quick Sort\n"
+                "\t[5] Heap Sort\n"
+                "\t[0] Voltar menu principal\n"
+                "Opcao:__[");
+        scanf(" %d", &opcao);
         switch (opcao) {
-            case '1': menuBubble();
+            case 1: menuBubble();
                 break;
-            case '2': menuInsertion();
+            case 2: menuInsertion();
                 break;
-            case '3': menuMerge();
+            case 3: menuMerge();
                 break;
-            case '4': menuQuick();
+            case 4: menuQuick();
                 break;
-            case '5': menuHeap();
+            case 5: menuHeap();
                 break;
-            case '0':
-            {
-                printf("Voltando para menu principal\n");
-                sleep(2);
-                return;
-            } break;
-            default: printf("\nOpcao incorreta, escolha de 0 a 5\n\n");
+            break;
+            default:{}
         }
-    } while (opcao < 0 || opcao > 5);
+        printf("Voltando... [ENTER] para continuar...\n");
+        fflush(stdin);
+        __fpurge(stdin);
+        getchar();
+    } while (opcao != 0);
 }
