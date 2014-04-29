@@ -1,4 +1,5 @@
 #include "main.h"
+int removeArquivo(void);
 
 int inserirElemento1(void *aux, char *arq) {
     FILE *pF = fopen(arq, "ab+");
@@ -11,7 +12,7 @@ int inserirElemento1(void *aux, char *arq) {
     return SUCESSO;
 }
 
-void intercalaElementos() {
+int intercalaElementos() {
     Agenda a1;
     Agenda a2;
     Agenda m;
@@ -20,8 +21,13 @@ void intercalaElementos() {
     FILE *pF2 = fopen(arq2, "rb");
     FILE *pF3 = fopen(arq3, "w+b");
 
-    fread(&a1, sizeof (Agenda), 1, pF1);
-    fread(&a2, sizeof (Agenda), 1, pF2);
+    if (pF1 == NULL || pF2 == NULL)
+        return FRACASSO;
+
+    if (fread(&a1, sizeof (Agenda), 1, pF1) == 0)
+        return FRACASSO;
+    if (fread(&a2, sizeof (Agenda), 1, pF2) == 0)
+        return FRACASSO;
     while (!feof(pF1) && !feof(pF2)) {
         if (a1.cod < a2.cod) {
             printf("a1 = %d menor a2 = %d\n", a1.cod, a2.cod);
@@ -48,21 +54,23 @@ void intercalaElementos() {
                 }
             }
         }
-        printf("\n---Elementos mesclados---:\n");
     }
+    printf("\n---Elementos mesclados---:\n");
     fclose(pF1);
     fclose(pF2);
     fclose(pF3);
+
     /*Reabre pra leitura*/
     pF3 = fopen(arq3, "rb");
     while (fread(&m, sizeof (Agenda), 1, pF3)) {
-        printf("Codigo:\t%d \nNome : \t%sRua  : \t%sFone : \t%s",
+        printf("\nCodigo:\t%d \nNome : \t%sRua  : \t%sFone : \t%s",
                 m.cod, m.nome, m.end, m.fone);
     }
     fclose(pF3);
+    return SUCESSO;
 }
 
-int questao1(void) {
+void questao1(void) {
     Agenda a, a1;
     int opc, ag_num, ret;
 
@@ -106,55 +114,66 @@ int questao1(void) {
                     printf("Elemento [%d] inserido em 'file%i.dat'.\n", a.cod, ag_num);
             }
                 break;
-            case 2: intercalaElementos();
+            case 2:
+            {
+                if (!intercalaElementos())
+                    printf("Problemas com os arquivos\n");
+            }
                 break;
             case 3:
             {
-                ag_num = 0;
-                char comando[20] = "rm -f ";
-                printf("Deseja remover qual agenda? (1,2,3,4=todas)\nOpcao__");
-                scanf("%d", &ag_num);
-                switch (ag_num) {
-                    case 1:
-                    {
-                        strcat(comando, arq1);
-                        system(comando);
-                        printf("comando = %s\n", comando);
-                    }
-                        break;
-                    case 2:
-                    {
-                        strcat(comando, arq2);
-                        system(comando);
-                        printf("comando = %s\n", comando);
-                    }
-                        break;
-                    case 3:
-                    {
-                        strcat(comando, arq3);
-                        system(comando);
-                        printf("comando = %s\n", comando);
-                    }
-                        break;
-                    case 4:
-                    {
-                        system("rm -f *.dat");
-                        printf("comando = rm -f *.dat\n");
-                    }
-                    default:
-                    {
-                    } //printf("Escolha de 1 a 4\n");
-                }
+                if (!removeArquivo())
+                    printf("Problemas ao remover arquivo(s)\n");
             }
                 break;
             default:
             {
-            }//printf("Opcao errada!\n");
+            }
         }
         printf("[ENTER] para continuar...\n");
         fflush(stdin);
         __fpurge(stdin);
         getchar();
     } while (opc != 0);
+}
+
+int removeArquivo(void) {
+    int ag_num, ret;
+    char comando[20] = "rm -f ";
+    printf("Deseja remover qual agenda? (1,2,3,4=todas)\nOpcao__");
+    scanf("%d", &ag_num);
+    switch (ag_num) {
+        case 1:
+        {
+            strcat(comando, arq1);
+            ret = system(comando);
+            printf("comando = %s\n", comando);
+        }
+            break;
+        case 2:
+        {
+            strcat(comando, arq2);
+            ret = system(comando);
+            printf("comando = %s\n", comando);
+        }
+            break;
+        case 3:
+        {
+            strcat(comando, arq3);
+            ret = system(comando);
+            printf("comando = %s\n", comando);
+        }
+            break;
+        case 4:
+        {
+            ret = system("rm -f *.dat");
+            printf("comando = rm -f *.dat\n");
+        }
+        default:
+        {
+        }
+    }
+    if (ret == -1)
+        return FRACASSO;
     return SUCESSO;
 }

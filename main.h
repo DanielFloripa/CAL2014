@@ -53,7 +53,7 @@
        struct agenda2 *proximo;
     }Agenda2, *pAgenda2, **ppAgenda2;
 
-    extern int questao1();
+    extern void questao1();
     extern void questao2();
     extern void questao3();
     extern void menuQuatro();
