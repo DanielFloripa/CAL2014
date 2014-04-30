@@ -354,33 +354,34 @@ void questao3(void) {
             case 2:
             {
                 if (arvore == NULL)
-                    printf("Voce deve primeiro criar uma arvore!\n");
+                    puts("Voce deve primeiro criar uma arvore!");
                 else {
-                    puts("Deseja inserir qntos elementos? : __");
-                    scanf("%d", &qtd);
+                    puts("Deseja inserir qntos elementos?");
+                    scanf(" %d", &qtd);
                     for (i = 0; i < qtd; i++) {
-                        printf("Codigo: ");
+                        puts("-----------------------------------");
+                        printf("\tCodigo:__");
                         scanf("%d", &temp.cod);
-                        fflush(stdin);
-                        __fpurge(stdin);
-                        printf("Nome: fulano\n");
-                        strcpy(temp.nome, "fulano");
+                        //fflush(stdin);
+                        //__fpurge(stdin);
+                        puts("\tNome: Fulano Default");
+                        strcpy(temp.nome, "Fulano Default");
                         // fgets(temp.nome, T_NOME * sizeof (char), stdin);
-                        fflush(stdin);
-                        __fpurge(stdin);
-                        printf("Endereco: rua das acacias\n");
-                        strcpy(temp.end, "acacias");
+                        //fflush(stdin);
+                        //__fpurge(stdin);
+                        puts("\tEndereco: Av. M. Metzner");
+                        strcpy(temp.end, "Av. M. Metzner");
                         //fgets(temp.end, T_END * sizeof (char), stdin);
-                        fflush(stdin);
-                        __fpurge(stdin);
-                        printf("Fone: 2345678\n");
-                        strcpy(temp.fone, "2345678");
+                        //fflush(stdin);
+                        //__fpurge(stdin);
+                        puts("\tFone: 4732345678\n");
+                        strcpy(temp.fone, "4732345678");
                         //fgets(temp.fone, T_FONE * sizeof (char), stdin);
-                        fflush(stdin);
-                        __fpurge(stdin);
+                        //fflush(stdin);
+                        //__fpurge(stdin);
                         if (insereABB(arvore, &temp, compara))
-                            printf("\nContato %d inserido com sucesso!\n", temp.cod);
-                        else printf("\nERRO! Problema de insercao na Arvore ou Chave ja existe!\n");
+                            printf("Contato %d inserido com sucesso!\n\n", temp.cod);
+                        else printf("\nERRO! Problema de insercao na Arvore ou ja existe!\n");
                     }
                 }
             }
@@ -431,6 +432,5 @@ void questao3(void) {
         fflush(stdin);
         __fpurge(stdin);
         getchar();
-    } while (escolha != 0);
-    return;
+    } while (escolha != 0); 
 }
