@@ -35,17 +35,17 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/questao3.o \
-	${OBJECTDIR}/questao2.o \
-	${OBJECTDIR}/Q4/5menuHeap.o \
-	${OBJECTDIR}/Q4/4menuQuick.o \
-	${OBJECTDIR}/Q4/questao4.o \
-	${OBJECTDIR}/Q4/3menuMerge.o \
 	${OBJECTDIR}/Q4/1menuBubble.o \
-	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/Q4/2menuInsertion.o \
-	${OBJECTDIR}/questao5.o \
-	${OBJECTDIR}/questao1.o
+	${OBJECTDIR}/Q4/3menuMerge.o \
+	${OBJECTDIR}/Q4/4menuQuick.o \
+	${OBJECTDIR}/Q4/5menuHeap.o \
+	${OBJECTDIR}/Q4/questao4.o \
+	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/questao1.o \
+	${OBJECTDIR}/questao2.o \
+	${OBJECTDIR}/questao3.o \
+	${OBJECTDIR}/questao5.o
 
 
 # C Compiler Flags
@@ -70,62 +70,62 @@ LDLIBSOPTIONS=-lm
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trab1_cal: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -lm -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trab1_cal ${OBJECTFILES} ${LDLIBSOPTIONS} 
-
-${OBJECTDIR}/questao3.o: nbproject/Makefile-${CND_CONF}.mk questao3.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/questao3.o questao3.c
-
-${OBJECTDIR}/questao2.o: nbproject/Makefile-${CND_CONF}.mk questao2.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/questao2.o questao2.c
-
-${OBJECTDIR}/Q4/5menuHeap.o: nbproject/Makefile-${CND_CONF}.mk Q4/5menuHeap.c 
-	${MKDIR} -p ${OBJECTDIR}/Q4
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Q4/5menuHeap.o Q4/5menuHeap.c
-
-${OBJECTDIR}/Q4/4menuQuick.o: nbproject/Makefile-${CND_CONF}.mk Q4/4menuQuick.c 
-	${MKDIR} -p ${OBJECTDIR}/Q4
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Q4/4menuQuick.o Q4/4menuQuick.c
-
-${OBJECTDIR}/Q4/questao4.o: nbproject/Makefile-${CND_CONF}.mk Q4/questao4.c 
-	${MKDIR} -p ${OBJECTDIR}/Q4
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Q4/questao4.o Q4/questao4.c
-
-${OBJECTDIR}/Q4/3menuMerge.o: nbproject/Makefile-${CND_CONF}.mk Q4/3menuMerge.c 
-	${MKDIR} -p ${OBJECTDIR}/Q4
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Q4/3menuMerge.o Q4/3menuMerge.c
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/trab1_cal ${OBJECTFILES} ${LDLIBSOPTIONS} -lm
 
 ${OBJECTDIR}/Q4/1menuBubble.o: nbproject/Makefile-${CND_CONF}.mk Q4/1menuBubble.c 
 	${MKDIR} -p ${OBJECTDIR}/Q4
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Q4/1menuBubble.o Q4/1menuBubble.c
-
-${OBJECTDIR}/main.o: nbproject/Makefile-${CND_CONF}.mk main.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.c
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Q4/1menuBubble.o Q4/1menuBubble.c
 
 ${OBJECTDIR}/Q4/2menuInsertion.o: nbproject/Makefile-${CND_CONF}.mk Q4/2menuInsertion.c 
 	${MKDIR} -p ${OBJECTDIR}/Q4
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/Q4/2menuInsertion.o Q4/2menuInsertion.c
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Q4/2menuInsertion.o Q4/2menuInsertion.c
 
-${OBJECTDIR}/questao5.o: nbproject/Makefile-${CND_CONF}.mk questao5.c 
+${OBJECTDIR}/Q4/3menuMerge.o: nbproject/Makefile-${CND_CONF}.mk Q4/3menuMerge.c 
+	${MKDIR} -p ${OBJECTDIR}/Q4
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Q4/3menuMerge.o Q4/3menuMerge.c
+
+${OBJECTDIR}/Q4/4menuQuick.o: nbproject/Makefile-${CND_CONF}.mk Q4/4menuQuick.c 
+	${MKDIR} -p ${OBJECTDIR}/Q4
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Q4/4menuQuick.o Q4/4menuQuick.c
+
+${OBJECTDIR}/Q4/5menuHeap.o: nbproject/Makefile-${CND_CONF}.mk Q4/5menuHeap.c 
+	${MKDIR} -p ${OBJECTDIR}/Q4
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Q4/5menuHeap.o Q4/5menuHeap.c
+
+${OBJECTDIR}/Q4/questao4.o: nbproject/Makefile-${CND_CONF}.mk Q4/questao4.c 
+	${MKDIR} -p ${OBJECTDIR}/Q4
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Q4/questao4.o Q4/questao4.c
+
+${OBJECTDIR}/main.o: nbproject/Makefile-${CND_CONF}.mk main.c 
 	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/questao5.o questao5.c
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
 ${OBJECTDIR}/questao1.o: nbproject/Makefile-${CND_CONF}.mk questao1.c 
 	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/questao1.o questao1.c
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/questao1.o questao1.c
+
+${OBJECTDIR}/questao2.o: nbproject/Makefile-${CND_CONF}.mk questao2.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/questao2.o questao2.c
+
+${OBJECTDIR}/questao3.o: nbproject/Makefile-${CND_CONF}.mk questao3.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/questao3.o questao3.c
+
+${OBJECTDIR}/questao5.o: nbproject/Makefile-${CND_CONF}.mk questao5.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/questao5.o questao5.c
 
 # Subprojects
 .build-subprojects:

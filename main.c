@@ -12,11 +12,11 @@ void main(void) {
         printf("\t ---TRABALHO 01 CAL---\n");
         printf("\t ---MENU PRINCIPAL---\n\n");
         printf("Deseja executar qual questao?\n "
-                "\t[1] Q1) Merge na Agenda\n "
-                "\t[2] Q2) Lista encadeada\n "
+                "\t[1] Q1) Merge Sort Arquivos\n "
+                "\t[2] Q2) Lista Encadeada\n "
                 "\t[3] Q3) Arvore Binaria de Pesquisa\n "
-                "\t[4] Q4) Metodos de ordenacao\n"
-                "\t[5] Q5) Dijkstra\n"
+                "\t[4] Q4) Metodos de Ordenacao\n"
+                "\t[5] Q5) Algoritmo de Dijkstra\n"
                 "\t[0] Para Sair..."
                 "\nOpcao:__[");
         scanf("%d", &opc);
