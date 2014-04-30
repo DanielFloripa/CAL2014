@@ -1,11 +1,11 @@
 #include "questao4.h"
 
-void subMenuCasos(int opcao, char metodo[20]);
-int teste(int numCaso, char nomeCaso[20], int numMet, char nomeMet[20]);
+
 
 void menuQuatro(void) {
     int opcao;
     char metodo[20];
+    AlgoOrd caso;
     do {
         system(LIMPA);
         printf("\tQ4 - ALGORITMOS DE ORDENACAO\n\n"
@@ -28,9 +28,9 @@ void menuQuatro(void) {
                 break;
             case 5: strcpy(metodo, "HEAP SORT: ");
                 break;
-            default:
-            {
-            }
+            case 0: puts("Voltandooo...\n");
+                break;
+            default: puts("Escolha de 0 a 5\n");
         }
         if (opcao > 0 && opcao < 6)
             subMenuCasos(opcao, metodo);
@@ -53,8 +53,7 @@ void subMenuCasos(int numMet, char nomeMet[20]) {
                 "\t[1] Ordenacao Crescente (melhor caso)\n"
                 "\t[2] Ordenacao Decrescente (pior caso)\n"
                 "\t[3] Ordenacao Aleatoria\n"
-                "\t[4] Apresentar resultados\n"
-                "\t[0] Voltar ao Menu 4\n"
+                "\t[0] Voltar ao Menu Q4\n"
                 "Opcao:__[", numMet, nomeMet);
         scanf("%d", &numCaso);
         switch (numCaso) {
@@ -67,23 +66,11 @@ void subMenuCasos(int numMet, char nomeMet[20]) {
             case 3:
                 strcpy(nomeCaso, "Medio Caso\n");
                 break;
-            case 4:
-            {
-                printf("\n\t\t METODO %s", nomeMet);
-                printf("\n\t\t Complexidade melhor caso: O(n^2)");
-                printf("\n\t\t Complexidade pior caso:   O(n^2)");
-                printf("\n\t\t Complexidade caso medio:  O(n^2)");
-                __fpurge(stdin);
-                fflush(stdin);
-                getchar();
-                return;
-            }
-                break;
-            default:
-            {
-            }
+            case 0: puts("Voltandooo...\n");
+            break;
+            default: puts("Escolha de 0 a 3\n");
         }
-        if ((numCaso > 0) && (numCaso < 5))
+        if ((numCaso > 0) && (numCaso < 4))
             if (!teste(numCaso, nomeCaso, numMet, nomeMet))
                 printf("Problemas no %s do %s", nomeCaso, nomeMet);
     } while (numCaso != 0);
