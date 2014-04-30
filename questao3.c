@@ -325,7 +325,7 @@ int exibe(void *dado) {
 void questao3(void) {
     pABB arvore = NULL;
     Agendaa temp;
-    int escolha;
+    int escolha, qtd, i;
 
     do {
         system(LIMPA);
@@ -356,28 +356,32 @@ void questao3(void) {
                 if (arvore == NULL)
                     printf("Voce deve primeiro criar uma arvore!\n");
                 else {
-                    printf("Codigo: ");
-                    scanf("%d", &temp.cod);
-                    fflush(stdin);
-                    __fpurge(stdin);
-                    printf("Nome: fulano\n");
-                    strcpy(temp.nome, "fulano");
-                    // fgets(temp.nome, T_NOME * sizeof (char), stdin);
-                    fflush(stdin);
-                    __fpurge(stdin);
-                    printf("Endereco: rua das acacias\n");
-                    strcpy(temp.end, "acacias");
-                    //fgets(temp.end, T_END * sizeof (char), stdin);
-                    fflush(stdin);
-                    __fpurge(stdin);
-                    printf("Fone: 2345678\n");
-                    strcpy(temp.fone, "2345678");
-                    //fgets(temp.fone, T_FONE * sizeof (char), stdin);
-                    fflush(stdin);
-                    __fpurge(stdin);
-                    if (insereABB(arvore, &temp, compara))
-                        printf("\nContato %d inserido com sucesso!\n", temp.cod);
-                    else printf("\nERRO! Problema de insercao na Arvore ou Chave ja existe!\n");
+                    puts("Deseja inserir qntos elementos? : __");
+                    scanf("%d", &qtd);
+                    for (i = 0; i < qtd; i++) {
+                        printf("Codigo: ");
+                        scanf("%d", &temp.cod);
+                        fflush(stdin);
+                        __fpurge(stdin);
+                        printf("Nome: fulano\n");
+                        strcpy(temp.nome, "fulano");
+                        // fgets(temp.nome, T_NOME * sizeof (char), stdin);
+                        fflush(stdin);
+                        __fpurge(stdin);
+                        printf("Endereco: rua das acacias\n");
+                        strcpy(temp.end, "acacias");
+                        //fgets(temp.end, T_END * sizeof (char), stdin);
+                        fflush(stdin);
+                        __fpurge(stdin);
+                        printf("Fone: 2345678\n");
+                        strcpy(temp.fone, "2345678");
+                        //fgets(temp.fone, T_FONE * sizeof (char), stdin);
+                        fflush(stdin);
+                        __fpurge(stdin);
+                        if (insereABB(arvore, &temp, compara))
+                            printf("\nContato %d inserido com sucesso!\n", temp.cod);
+                        else printf("\nERRO! Problema de insercao na Arvore ou Chave ja existe!\n");
+                    }
                 }
             }
                 break;
